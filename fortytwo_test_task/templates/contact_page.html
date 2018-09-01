@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}42 Coffee Cups Test Assignment{%endblock%}
+
+{% block content %}
+	<h1>42 Coffee Cups Test Assignment</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				{% for key, value in [
+					('Name', {
+						'value': 'Bohdan',
+						'multiline': False,
+					}),
+					('Last Name', {
+						'value': 'Horbeshko',
+						'multiline': False,
+					}),
+					('Date of birth', {
+						'value': '06-10-1995',
+						'multiline': False,
+					}),
+					('Bio', {
+						'value': 'Mul\nti\nline',
+						'multiline': True,
+					}),
+				] %}
+				<div class="row">
+					<div class="col-md-{% if value.multiline %}6{% else %}12{% endif %}">
+						{{ key }}
+					</div>
+					<div class="{% if value.multiline %}col-md-6{% else %}offset-md-1 col-md-11{% endif %}">
+						{{ value.value|linebreaksbr }}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					Contacts
+				</div>
+				{% for key, value in [
+					('Email', {
+						'value': 'email',
+						'multiline': False,
+					}),
+					('Jabber', {
+						'value': 'JID',
+						'multiline': False,
+					}),
+					('Skype', {
+						'value': 'id',
+						'multiline': False,
+					}),
+				] %}
+				<div class="row">
+					<div class="col-md-6">
+						{{ key }}
+					</div>
+					<div class="col-md-6">
+						{{ value.value }}
+					</div>
+				</div>
+				{% endfor %}
+				<div class="row">
+					<div class="col-md-12">
+						Other contacts:
+					</div>
+					<div class="offset-md-1 col-md-11">
+						{{ 'Mul\nti\nline'|linebreaksbr }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
