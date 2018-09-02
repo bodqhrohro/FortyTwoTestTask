@@ -1,11 +1,14 @@
-from django.urls import path
-
-from apps.contact_page import views as contact_page_views
+from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = [
-    path('', contact_page_views.contact_page, name='index'),
-    path('admin/', admin.site.urls),
-]
+urlpatterns = patterns(
+    '',
+    # Examples:
+    # url(r'^$', 'fortytwo_test_task.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^$', 'contact_page_views.contact_page', name='index'),
+    url(r'^admin/', include(admin.site.urls)),
+)

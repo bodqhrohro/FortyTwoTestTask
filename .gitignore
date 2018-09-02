@@ -15,5 +15,3 @@ media
 static
 *.dat
 .env
-tox.ini
-.ropeproject
