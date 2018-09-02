@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 
-class ContactPageTests(TestCase):
+class ContactPageViewTests(TestCase):
     def test_name(self):
         """Simple test for the substring presence."""
         response = self.client.get(reverse('index'))
@@ -49,3 +49,23 @@ class ContactPageTests(TestCase):
             }),
         ]))
         self.assertEqual(response.context['other_contacts'], 'Mul\nti\nline')
+
+
+class GeneralInfoModelTests(TestCase):
+    def test_general_info(self):
+        """Check if the general info is read properly."""
+        general_info = GeneralInfo.objects.all()
+        self.assertIn(general_info, ('Name', 'Bohdan'))
+        self.assertIn(general_info, ('Last Name', 'Horbeshko'))
+        self.assertIn(general_info, ('Date of birth', '06-10-1995'))
+        self.assertIn(general_info, ('Bio', 'Mul\nti\nline'))
+
+    def test_contacts(self):
+        """Check if the contacts are read properly."""
+        contacts = Contacts.objects.all()
+        self.assertIn(contacts, ('Email', 'email'))
+        self.assertIn(contacts, ('Jabber', 'JID'))
+        self.assertIn(contacts, ('Skype', 'id'))
+        self.assertIn(contacts, ('', 'Mul'))
+        self.assertIn(contacts, ('', 'ti'))
+        self.assertIn(contacts, ('', 'line'))
