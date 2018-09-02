@@ -4,11 +4,13 @@ from django.core.urlresolvers import reverse
 
 class ContactPageTests(TestCase):
     def test_name(self):
+        """Simple test for the substring presence."""
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Horbeshko")
 
     def test_general_info(self):
+        """Check if the general info is outputted properly."""
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['general_info'], map(repr, [
             ('Name', {
@@ -30,6 +32,7 @@ class ContactPageTests(TestCase):
         ]))
 
     def test_contacts(self):
+        """Check if the contacts are outputted properly."""
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['contacts'], map(repr, [
             ('Email', {
