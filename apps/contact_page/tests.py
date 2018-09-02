@@ -4,13 +4,13 @@ from django.urls import reverse
 
 class ContactPageTests(TestCase):
     def test_name(self):
-        response = self.client.get(reverse('contact_page:index'))
+        response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Horbeshko")
 
     def test_general_info(self):
-        response = self.client.get(reverse('contact_page:index'))
-        self.assertQuerysetEqual(response.context['general_info'], [
+        response = self.client.get(reverse('index'))
+        self.assertQuerysetEqual(response.context['general_info'], map(repr, [
             ('Name', {
                 'value': 'Bohdan',
                 'multiline': False,
@@ -27,11 +27,11 @@ class ContactPageTests(TestCase):
                 'value': 'Mul\nti\nline',
                 'multiline': True,
             }),
-        ])
+        ]))
 
     def test_contacts(self):
-        response = self.client.get(reverse('contact_page:index'))
-        self.assertQuerysetEqual(response.context['contacts'], [
+        response = self.client.get(reverse('index'))
+        self.assertQuerysetEqual(response.context['contacts'], map(repr, [
             ('Email', {
                 'value': 'email',
                 'multiline': False,
@@ -44,6 +44,5 @@ class ContactPageTests(TestCase):
                 'value': 'id',
                 'multiline': False,
             }),
-        ])
-        self.assertQuerysetEqual(response.context['other_contacts'],
-                                 'Mul\nti\nline')
+        ]))
+        self.assertEqual(response.context['other_contacts'], 'Mul\nti\nline')

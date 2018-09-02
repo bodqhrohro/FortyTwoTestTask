@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}42 Coffee Cups Test Assignment{%endblock%}
+
+{% block content %}
+	<h1>42 Coffee Cups Test Assignment</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				{% for key, value in general_info %}
+				<div class="row">
+					<div class="col-md-{% if value.multiline %}12{% else %}6{% endif %}">
+						{{ key }}
+					</div>
+					<div class="{% if value.multiline %}offset-md-1 col-md-11{% else %}col-md-6{% endif %}">
+						{{ value.value|linebreaksbr }}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					Contacts
+				</div>
+				{% for key, value in contacts %}
+				<div class="row">
+					<div class="col-md-6">
+						{{ key }}
+					</div>
+					<div class="col-md-6">
+						{{ value.value }}
+					</div>
+				</div>
+				{% endfor %}
+				<div class="row">
+					<div class="col-md-12">
+						Other contacts:
+					</div>
+					<div class="offset-md-1 col-md-11">
+						{{ other_contacts|linebreaksbr }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
