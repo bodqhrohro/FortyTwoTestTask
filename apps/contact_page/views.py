@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import _model_to_tuple, GeneralInfo, Contact
+
 
 KNOWN_CONTACT_TYPES = ['Email', 'Jabber', 'Skype']
 
@@ -33,21 +35,8 @@ def _add_multiline_flag(tuples_list):
 
 
 def contact_page(request):
-    general_info = [
-        ('Name', 'Bohdan'),
-        ('Last Name', 'Horbeshko'),
-        ('Date of birth', '06-10-1995'),
-        ('Bio', 'Mul\nti\nline'),
-    ]
-
-    contacts = [
-        ('Email', 'email'),
-        ('Jabber', 'JID'),
-        ('Skype', 'id'),
-        ('', 'Mul'),
-        ('', 'ti'),
-        ('', 'line'),
-    ]
+    general_info = map(_model_to_tuple, GeneralInfo.objects.all())
+    contacts = map(_model_to_tuple, Contact.objects.all())
 
     general_info = _add_multiline_flag(general_info)
 

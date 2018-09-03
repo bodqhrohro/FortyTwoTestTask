@@ -1,8 +1,12 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
+from apps.contact_page.models import _model_to_tuple, GeneralInfo, Contact
+
 
 class ContactPageViewTests(TestCase):
+    fixtures = ['test_data.json']
+
     def test_name(self):
         """Simple test for the substring presence."""
         response = self.client.get(reverse('index'))
@@ -52,20 +56,22 @@ class ContactPageViewTests(TestCase):
 
 
 class GeneralInfoModelTests(TestCase):
+    fixtures = ['test_data.json']
+
     def test_general_info(self):
         """Check if the general info is read properly."""
-        general_info = GeneralInfo.objects.all()
-        self.assertIn(general_info, ('Name', 'Bohdan'))
-        self.assertIn(general_info, ('Last Name', 'Horbeshko'))
-        self.assertIn(general_info, ('Date of birth', '06-10-1995'))
-        self.assertIn(general_info, ('Bio', 'Mul\nti\nline'))
+        general_info = map(_model_to_tuple, GeneralInfo.objects.all())
+        self.assertIn(('Name', 'Bohdan'), general_info)
+        self.assertIn(('Last Name', 'Horbeshko'), general_info)
+        self.assertIn(('Date of birth', '06-10-1995'), general_info)
+        self.assertIn(('Bio', 'Mul\nti\nline'), general_info)
 
     def test_contacts(self):
         """Check if the contacts are read properly."""
-        contacts = Contacts.objects.all()
-        self.assertIn(contacts, ('Email', 'email'))
-        self.assertIn(contacts, ('Jabber', 'JID'))
-        self.assertIn(contacts, ('Skype', 'id'))
-        self.assertIn(contacts, ('', 'Mul'))
-        self.assertIn(contacts, ('', 'ti'))
-        self.assertIn(contacts, ('', 'line'))
+        contacts = map(_model_to_tuple, Contact.objects.all())
+        self.assertIn(('Email', 'email'), contacts)
+        self.assertIn(('Jabber', 'JID'), contacts)
+        self.assertIn(('Skype', 'id'), contacts)
+        self.assertIn(('', 'Mul'), contacts)
+        self.assertIn(('', 'ti'), contacts)
+        self.assertIn(('', 'line'), contacts)

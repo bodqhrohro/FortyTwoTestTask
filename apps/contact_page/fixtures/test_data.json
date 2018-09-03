@@ -1,0 +1,82 @@
+[
+{
+    "pk": 1, 
+    "model": "contact_page.generalinfo", 
+    "fields": {
+        "value": "Bohdan", 
+        "title": "Name"
+    }
+},
+{
+    "pk": 2, 
+    "model": "contact_page.generalinfo", 
+    "fields": {
+        "value": "Horbeshko", 
+        "title": "Last Name"
+    }
+},
+{
+    "pk": 3, 
+    "model": "contact_page.generalinfo", 
+    "fields": {
+        "value": "06-10-1995", 
+        "title": "Date of birth"
+    }
+},
+{
+    "pk": 4, 
+    "model": "contact_page.generalinfo", 
+    "fields": {
+        "value": "Mul\nti\nline", 
+        "title": "Bio"
+    }
+},
+{
+    "pk": 1, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "email", 
+        "title": "Email"
+    }
+},
+{
+    "pk": 2, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "JID", 
+        "title": "Jabber"
+    }
+},
+{
+    "pk": 3, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "id", 
+        "title": "Skype"
+    }
+},
+{
+    "pk": 4, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "Mul", 
+        "title": ""
+    }
+},
+{
+    "pk": 5, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "ti", 
+        "title": ""
+    }
+},
+{
+    "pk": 6, 
+    "model": "contact_page.contact", 
+    "fields": {
+        "value": "line", 
+        "title": ""
+    }
+}
+]
