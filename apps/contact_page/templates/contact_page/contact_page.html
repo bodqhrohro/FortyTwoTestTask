@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}42 Coffee Cups Test Assignment{%endblock%}
+
+{% block extra_head %}
+		<link rel="stylesheet" href="{% static 'css/contact_page.css' %}">
+{% endblock %}
+
+{% block content %}
+	<h1 class="contact-page_heading">42 Coffee Cups Test Assignment</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 contact-page_major-block">
+				{% for key, value in general_info %}
+				<div class="row">
+					<div class="col-md-{% if value.multiline %}12{% else %}6{% endif %} contact-page_key">
+						{{ key }}
+					</div>
+					<div class="{% if value.multiline %}offset-md-1 col-md-11{% else %}col-md-6{% endif %} contact-page_value">
+						{{ value.value|linebreaksbr }}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-6 contact-page_major-block">
+				<div class="row">
+					<div class="col-md-12 contact-page_key contact-page_heading">
+						Contacts
+					</div>
+				</div>
+				{% for key, value in contacts %}
+				<div class="row contact-page_contact-style-{{ key|lower }}">
+					<div class="col-md-6 contact-page_key">
+						{{ key }}
+					</div>
+					<div class="col-md-6 contact-page_value">
+						{{ value.value }}
+					</div>
+				</div>
+				{% endfor %}
+				<div class="row">
+					<div class="col-md-12 contact-page_key">
+						Other contacts
+					</div>
+					<div class="offset-md-1 col-md-11 contact-page_value">
+						{{ other_contacts|linebreaksbr }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

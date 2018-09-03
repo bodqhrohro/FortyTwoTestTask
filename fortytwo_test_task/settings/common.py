@@ -42,7 +42,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.hello',
+    'south',
+
+    'apps.contact_page',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -127,3 +129,8 @@ TEMPLATE_DIRS = (
 
 # Turn off south during test
 SOUTH_TESTS_MIGRATE = False
+
+# Fill the database on installation
+FIXTURE_DIRS = [
+    'apps/contact_page/fixtures/',
+]
