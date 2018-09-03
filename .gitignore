@@ -17,3 +17,4 @@ static
 .env
 tox.ini
 .ropeproject
+!apps/contact_page/static
