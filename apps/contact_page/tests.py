@@ -21,20 +21,20 @@ class ContactPageViewTests(TestCase):
         """Check if the general info is outputted properly."""
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['general_info'], map(repr, [
-            ('Name', {
-                'value': 'Bohdan',
+            (u'Name', {
+                'value': u'Bohdan',
                 'multiline': False,
             }),
-            ('Last Name', {
-                'value': 'Horbeshko',
+            (u'Last Name', {
+                'value': u'Horbeshko',
                 'multiline': False,
             }),
-            ('Date of birth', {
-                'value': '06-10-1995',
+            (u'Date of birth', {
+                'value': u'06-10-1995',
                 'multiline': False,
             }),
-            ('Bio', {
-                'value': 'Mul\nti\nline',
+            (u'Bio', {
+                'value': u'Mul\nti\nline',
                 'multiline': True,
             }),
         ]))
@@ -43,16 +43,16 @@ class ContactPageViewTests(TestCase):
         """Check if the contacts are outputted properly."""
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['contacts'], map(repr, [
-            ('Email', {
-                'value': 'email',
+            (u'Email', {
+                'value': u'email',
                 'multiline': False,
             }),
-            ('Jabber', {
-                'value': 'JID',
+            (u'Jabber', {
+                'value': u'JID',
                 'multiline': False,
             }),
-            ('Skype', {
-                'value': 'id',
+            (u'Skype', {
+                'value': u'id',
                 'multiline': False,
             }),
         ]))
