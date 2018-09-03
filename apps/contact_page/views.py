@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import _model_to_tuple, GeneralInfo, Contact
+from .models import _model_to_tuple, _keyvalue_to_str, GeneralInfo, Contact
 
 
 KNOWN_CONTACT_TYPES = ['Email', 'Jabber', 'Skype']
@@ -23,7 +23,7 @@ def _split_contacts(contacts):
 
 def _contacts_to_string(contacts):
     return '\n'.join([
-        (type + ': ' if type else '') + id for type, id in contacts
+        _keyvalue_to_str(type, id) for type, id in contacts
     ])
 
 
