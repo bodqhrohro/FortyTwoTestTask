@@ -5,7 +5,7 @@ from apps.contact_page.models import _model_to_tuple, GeneralInfo, Contact
 
 
 class ContactPageViewTests(TestCase):
-    fixtures = ['test_data.json']
+    fixtures = ['contact_page_test_data.json']
 
     def test_name(self):
         """Simple test for the substring presence."""
@@ -56,7 +56,7 @@ class ContactPageViewTests(TestCase):
 
 
 class GeneralInfoModelTests(TestCase):
-    fixtures = ['test_data.json']
+    fixtures = ['contact_page_test_data.json']
 
     def test_general_info(self):
         """Check if the general info is read properly."""

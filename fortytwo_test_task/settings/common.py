@@ -129,3 +129,8 @@ TEMPLATE_DIRS = (
 
 # Turn off south during test
 SOUTH_TESTS_MIGRATE = False
+
+# Fill the database on installation
+FIXTURE_DIRS = [
+    'apps/contact_page/fixtures/',
+]
