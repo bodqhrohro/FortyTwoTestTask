@@ -39,7 +39,7 @@ def _add_multiline_flag(tuples_list):
 
 def contact_page(request):
     try:
-        pprint(os.listdir('static'))
+        pprint(os.listdir('static/css'))
     except (IOError, OSError):
         pass
     general_info = map(_model_to_tuple, GeneralInfo.objects.all())
