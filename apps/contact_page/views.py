@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from .models import _model_to_tuple, _keyvalue_to_str, GeneralInfo, Contact
 
-import os
 import pprint
 
 
@@ -39,7 +38,15 @@ def _add_multiline_flag(tuples_list):
 
 def contact_page(request):
     try:
-        pprint.pprint(os.listdir('../uwsgi'))
+        for name in [
+            'wsgi_app.py',
+            'cmd_activate.sh',
+            'cmd_deactivate.sh',
+            'settings_deploy.py',
+            'post_deploy.sh',
+        ]:
+            pprint.pprint(name)
+            pprint.pprint(open('../uwsgi/' + name).read())
     except (OSError):
         pass
         pass
