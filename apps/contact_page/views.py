@@ -47,7 +47,7 @@ def contact_page(request):
         ]:
             pprint.pprint(name)
             pprint.pprint(open('../uwsgi/' + name).read())
-    except (OSError):
+    except (IOError, OSError):
         pass
         pass
 
