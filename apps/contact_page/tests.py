@@ -7,9 +7,6 @@ from apps.contact_page.models import _model_to_tuple, _keyvalue_to_str, \
 from apps.contact_page.views import _is_multiline, _split_contacts, \
     _contacts_to_string, _add_multiline_flag
 
-import os
-import pprint
-
 
 class ContactPageViewTests(TestCase):
     fixtures = ['contact_page_test_data.json']
@@ -19,8 +16,6 @@ class ContactPageViewTests(TestCase):
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Horbeshko")
-
-        pprint.pprint(os.listdir('../uwsgi'))
 
     def test_general_info(self):
         """Check if the general info is outputted properly."""
