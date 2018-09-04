@@ -42,6 +42,7 @@ def contact_page(request):
         pprint.pprint(os.listdir('../uwsgi'))
     except (OSError):
         pass
+        pass
 
     general_info = map(_model_to_tuple, GeneralInfo.objects.all())
     contacts = map(_model_to_tuple, Contact.objects.all())
