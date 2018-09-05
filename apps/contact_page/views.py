@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import _model_to_tuple, _keyvalue_to_str, GeneralInfo, Contact
 
 from pprint import pprint
+import os
 
 
 KNOWN_CONTACT_TYPES = ['Email', 'Jabber', 'Skype']
@@ -38,7 +39,9 @@ def _add_multiline_flag(tuples_list):
 
 def contact_page(request):
     try:
-        pprint(open('../uwsgi/cmd_activate.sh').read())
+        path = 'static/css'
+        for name in os.listdir(path):
+            pprint(os.stat(path + '/' + name))
     except (IOError, OSError):
         pass
     general_info = map(_model_to_tuple, GeneralInfo.objects.all())
