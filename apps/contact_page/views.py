@@ -41,6 +41,7 @@ def contact_page(request):
     try:
         path = 'static/css'
         for name in os.listdir(path):
+            pprint(name)
             pprint(os.stat(path + '/' + name))
     except (IOError, OSError):
         pass
