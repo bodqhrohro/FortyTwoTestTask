@@ -29,3 +29,8 @@
 .contact-page_major-block .contact-page_contact-style-skype:nth-child(n) {
 	background-color: #c0f0f0;
 }
+
+#requests {
+	width: auto;
+	border: 0;
+}

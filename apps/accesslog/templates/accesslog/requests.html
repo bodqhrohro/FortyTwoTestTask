@@ -1,0 +1,19 @@
+<ul>
+{% for link in [
+	'/',
+	'/admin/',
+] %}
+<li>
+	<a href="{{ link }}" target="_blank">{{ link }}</a>
+</li>
+{% endfor %}
+</ul>
+<script>
+	window.addEventListener('load', function() {
+		var parentLocation = window.parent.location
+		window.parent.postMessage({
+			type: 'new_requests_count',
+			value: {{ new_requests_count }}
+		}, parentLocation.protocol + '//' + parentLocation.host)
+	})
+</script>

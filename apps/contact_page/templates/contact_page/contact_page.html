@@ -5,6 +5,7 @@
 
 {% block extra_head %}
 		<link rel="stylesheet" href="{% static 'css/contact_page.css' %}">
+		<script src="{% static 'js/contact_page.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -51,11 +52,8 @@
 		</div>
 	</div>
 	<hr>
-	<div class="container" id="requests">
-		<ul>
-			<li>
-				<a href="#">requests</a>
-			</li>
-		</ul>
+	<div class="container">
+		<iframe src="static/requests_mock.html" id="requests">
+		</iframe>
 	</div>
 {% endblock %}
