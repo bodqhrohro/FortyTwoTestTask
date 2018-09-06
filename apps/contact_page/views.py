@@ -39,7 +39,7 @@ def _add_multiline_flag(tuples_list):
 
 def contact_page(request):
     try:
-        path = '.'
+        path = '..'
         pprint(os.listdir(path))
     except (IOError, OSError):
         pass
