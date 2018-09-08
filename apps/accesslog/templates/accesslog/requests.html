@@ -1,8 +1,5 @@
 <ul>
-{% for link in [
-	'/',
-	'/admin/',
-] %}
+{% for link in visited_links %}
 <li>
 	<a href="{{ link }}" target="_blank">{{ link }}</a>
 </li>

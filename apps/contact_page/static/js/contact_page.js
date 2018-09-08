@@ -4,8 +4,9 @@ $(function() {
 
     // update the requests iframe every 10 seconds
     var UPDATE_INTERVAL = 10
+    var originalRequestsIframeLocation = requestsIframe.src
     window.setInterval(function() {
-        requestsIframe.contentWindow.location.reload()
+        requestsIframe.contentWindow.location = originalRequestsIframeLocation + '?from=' + Date.now()
     }, UPDATE_INTERVAL * 1000)
 
     // listen to visited pages counter

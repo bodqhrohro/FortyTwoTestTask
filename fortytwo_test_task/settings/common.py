@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'south',
 
     'apps.contact_page',
+    'apps.accesslog',
 )
 
 MIDDLEWARE_CLASSES = (
