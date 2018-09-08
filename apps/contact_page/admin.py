@@ -1,6 +1,17 @@
 from django.contrib import admin
+from django import forms
 
 from .models import GeneralInfo, Contact
 
-admin.site.register(GeneralInfo)
+
+class GeneralInfoAdminForm(forms.ModelForm):
+    title = forms.CharField()
+    value = forms.CharField(widget=forms.Textarea)
+
+
+class GeneralInfoAdmin(admin.ModelAdmin):
+    form = GeneralInfoAdminForm
+
+
+admin.site.register(GeneralInfo, GeneralInfoAdmin)
 admin.site.register(Contact)
